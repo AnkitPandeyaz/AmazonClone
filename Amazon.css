@@ -5,6 +5,8 @@
     border: border-box;
 }
 
+
+
 /*for responsive in mobile devices*/
 
 .container{
@@ -186,6 +188,28 @@ span{
     color: #007185;
 }
 
+.deco a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+   
+}
+
+.deco  a :link{
+    color: #007185;
+}
+.deco  a:visited{
+    color:#13c6e6;
+}
+
+.deco  a:hover{
+    color: rgb(13, 13, 13);
+    text-decoration: underline;
+}
+.deco  a:active{
+  color: green;
+}
+
 /*shop section styling*/
 
 .shop-section{
@@ -254,6 +278,23 @@ ul a{
     font-size: 0.85rem;
     margin-top: 10px;
     color: #dddddd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul a :link{
+    color: blue;
+}
+ul a:visited{
+    color: rgb(255, 255, 255);
+}
+
+ul a:hover{
+    color: rgb(20, 188, 213);
+    text-decoration: underline;
+}
+ul a:active{
+  color: green;
 }
 
 .foot-panel3{

@@ -10,152 +10,923 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"   />
     <link rel="stylesheet" href="Amazon.css">
+
 </head>
 
-<body class="container">
+<body>
+
+<!-- ************************************header start here****************************** -->
     <header>
-        <div class="navbar">
-            <div class="nav-logo  border">
-                <div class="logo"></div>
-            </div>
-            <div class="nav-address border">
-                <p class="add-first">Deliver to</p>
-                <div class="add-icon">
-                    <i class="fa-solid fa-location-dot"></i>
+        <div class="first">
+            <div class="flex logo">
+                <img src="./img/logo.png" alt="Amazon logo">
 
-                    <p class="add-second">India</p>
+                <div class="map flex">
+                    <i class="fas fa-map-marker"></i>
+                    <div>
+                        <span>Deliver to</span>
+                        <span>India</span>
+                    </div>
                 </div>
 
             </div>
-            <div class="nav-search">
-                <select class="search-select">
-                    <option>All</option>
-                </select>
-                <input placeholder="Search Amazon" class="search-input">
-                <div class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="flex input">
+                <div>
+                    <span>All</span>
+                    <i class="fas fa-caret-down"></i>
                 </div>
+                <input type="text" placeholder="Search Amazon">
+                <i class="fas fa-search"></i>
             </div>
-
-            <div class="nav-signin border">
-                <p><span>Hello, sign in</span></p>
-                <p class="nav-second">Account & Lists</p>
-            </div>
-            <div class="nav-return border">
-                <p><span>Returns</span></p>
-                <p class="nav-second ">& Orders</p>
-            </div>
-
-            <div class="nav-cart  border ">
-                <i class="fa-solid fa-cart-shopping"></i>
-                cart
+            <div class="flex right">
+                <div class="flex lang">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/002/399/741/small/american-flag-icon-vector.jpg "
+                        alt="">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="sign">
+                    <button id="toggleButton">
+                    <span>Hello, Sign in</span>
+                    <div class="flex ac">
+                        <span>Account & Lists</span>
+                            <i class="fas fa-caret-down"></i>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="sign">
+                    <span>Returns</span>
+                    <span>& Orders</span>
+                </div>
+                <div class="flex cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="ca">Cart</span>
+                    <p>0</p>
+                </div>
             </div>
         </div>
-
-        <div class="panel">
-            <div class="panel-all">
-                <i class="fa-solid fa-bars"></i>
-                All
+        <div class="second">
+            <div onclick="openNav()">
+                <div class="second-1">
+                    <div>
+                        <i class="fas fa-bars"></i>
+                        <span>All</span>
+                    </div>
+                </div>
             </div>
-            <div class="panel-ops">
-                <p>Today's Deals</p>
-                <p>Customer Service</p>
-                <p>Registry</p>
-                <p>Gift Cards</p>
-                <p>Sell</p>
+            <div class="second-2">
+                <ul>
+                    <li>Today's Deals</li>
+                    <li>Customer Service</li>
+                    <li> Registry</li>
+                    <li>Gift Cards</li>
+                    <li> Sell</li>
+                </ul>
             </div>
-            <div class="panel-deals">
-                Shop deals in Electronics
+            <div class="second-3">
+                <span>Shop deals in Electronics</span>
             </div>
         </div>
     </header>
 
-    <div class="hero-section">
-        <div class="hero-message">
-            <p> You are on amazon.com. You can also shop on Amazon India for million of products with fast local
-                delivery.<a href="https://www.amazon.in/?ref=aisgw_intl_stripe_in"> Click here to go to amazon.in</a>
-            </p>
-        </div>
-    </div>
+<!-- ***********************sidebar****************************** -->
+    <div id="overlay" onclick="closeNav()"></div>
 
-    <div class="shop-section">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Clothing</h2>
-                <div class="box-image" style="background-image:url('./box1_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.in/s/ref=mega_sv_s23_2_1_1_1?rh=i%3Aapparel%2Cn%3A1968024031&ie=UTF8&lo=apparel&pf_rd_r=M3JQJ0YNQ8R2WF4069XE&pf_rd_p=cc8e9908-c616-40e7-9c6d-837f17083fcc&pd_rd_r=5e1bddc3-cf3d-4629-940e-ca3263e22360&pd_rd_w=M1sX6&pd_rd_wg=XFbQu&ref_=pd_gw_unk">see
-                        more</a></p>
+    <div id="closeBtn" onclick="closeNav()">&times;</div>
+    <div class="sidenav" id="mySidenav">
+      <div class="sidenavHeader">
+        <i class="fas fa-user-circle"></i> Hello, Sign In
+      </div>
+      <!--Below SideNavHeader-->
+      <div id="main-container">
+        <div class="sidenavContentHeader">Trending</div>
+        <a href="#"><div class="sidenavContent">Best Sellers</div></a>
+        <a href="#"><div class="sidenavContent">New Releases</div></a>
+        <a href="#"><div class="sidenavContent">Movers and Shakers</div></a>
+        <hr />
+        <div class="sidenavContentHeader">Digital Content And Devices</div>
+        <a href="#" onclick="openPrimeVideo()"
+          ><div class="sidenavRow">
+            <div>Prime Video</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#" onclick="openAmazonMusic()"
+          ><div class="sidenavRow">
+            <div>Amazon Music</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Apps for Android</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Echo, Alexa & Smart Home</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Fire TV</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Fire Tablets</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Kindle E-readers & Books</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Audible Audiobooks</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <hr />
+        <div class="sidenavContentHeader">Shop By Department</div>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Amazon Fresh</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Books</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Films, TV, Music & Games</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Electronics & Computers</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <div class="sidenavContainer" id="firstContainer">
+          <hr />
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Home, Garden, Pets & DIY</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Health & Persona Care</h2>
-                <div class="box-image" style="background-image:url('./box2_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/s?i=specialty-aps&bbn=16225006011&rh=n%3A%2116225006011%2Cn%3A3777891&pd_rd_r=3f0fd3b6-d005-4921-8a1d-e7cd42afae07&pd_rd_w=8QrhA&pd_rd_wg=wbqmn&pf_rd_p=eab778f7-37cf-4c6b-9552-5370900592a9&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&ref=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Toys, Children & Baby</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Furnitures</h2>
-                <div class="box-image" style="background-image:url('./box3_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/b?ie=UTF8&node=87586174011&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&pf_rd_p=d7b94f64-4564-4184-a533-8d6d81374732&pd_rd_r=3f0fd3b6-d005-4921-8a1d-e7cd42afae07&pd_rd_w=xyuBp&pd_rd_wg=wbqmn&ref_=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Clothes, Shoes, Jewellery & Accessories</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Electronics Devices</h2>
-                <div class="box-image" style="background-image:url('./box4_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/b?node=16225009011&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&pf_rd_p=5232c45b-5929-4ff0-8eae-5f67afd5c3dc&pd_rd_r=3f0fd3b6-d005-4921-8a1d-e7cd42afae07&pd_rd_w=rY2H1&pd_rd_wg=wbqmn&ref_=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Sports & Outdoors</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box5 box">
-            <div class="box-content">
-                <h2>Health and Beauty</h2>
-                <div class="box-image" style="background-image:url('./box5_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/s?k=health+and+beauty&i=beauty-intl-ship&crid=2036DM6EKNYNA&pd_rd_r=3f0fd3b6-d005-4921-8a1d-e7cd42afae07&pd_rd_w=hITBK&pd_rd_wg=wbqmn&pf_rd_p=c0480761-6b7c-400b-bca5-28ff417248d1&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&sprefix=health+and+beauty%2Cbeauty-intl-ship%2C173&ref=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Food & Grocery</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box6 box">
-            <div class="box-content">
-                <h2>Pets care</h2>
-                <div class="box-image" style="background-image:url('./box6_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/s?k=pet+supplies&s=date-desc-rank&crid=3IF5TSVMY5YRB&pd_rd_r=3443d23d-570d-4864-baef-0d94e2997ac9&pd_rd_w=oMyPw&pd_rd_wg=B6wa8&pf_rd_p=ab475c0d-7817-4703-9d6d-f003bf2156bf&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&qid=1632868254&sprefix=pet+sup%2Caps%2C268&ref=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Health & Beauty</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
-        </div>
-        <div class="box7 box">
-            <div class="box-content">
-                <h2>New arrivals in Toys</h2>
-                <div class="box-image" style="background-image:url('./box7_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/s?k=toys&s=date-desc-rank&pd_rd_r=3443d23d-570d-4864-baef-0d94e2997ac9&pd_rd_w=LtypS&pd_rd_wg=B6wa8&pf_rd_p=779cadfb-bc4d-465d-931f-0b68c1ba5cd5&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&qid=1632870778&ref=pd_gw_unk">see
-                        more </a></p>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Car & Motorbike</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Business, Industry & Science</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
         </div>
-        <div class="box8 box">
-            <div class="box-content">
-                <h2>Ladies Fashions</h2>
-                <div class="box-image" style="background-image:url('./box8_image.jpg');"> </div>
-                <p class="deco"> <a
-                        href="https://www.amazon.com/s?k=spring+fashion+trends&crid=27JAPFCJF50YO&pd_rd_r=3443d23d-570d-4864-baef-0d94e2997ac9&pd_rd_w=ulC1D&pd_rd_wg=B6wa8&pf_rd_p=b14a5e39-de66-4033-bb36-c04fed7f5597&pf_rd_r=WX6NQ01S9GZS9BRMZWRQ&sprefix=spring+fashion+trends%2Caps%2C174&ref=pd_gw_unk">see
-                        more </a></p>
+        <div
+          class="sidenavRowDropdown"
+          id="firstDropDown"
+          onclick="firstDropDown()"
+        >
+          <div>See All</div>
+          <i
+            class="fas fa-chevron-down"
+            style="color: #8e9090; margin-left: 10px"
+          >
+          </i>
+        </div>
+        <hr />
+        <div class="sidenavContentHeader">Programs & Features</div>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Gift Cards & Top Up</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Find a Gift</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Handmade</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Amazon Launchpad</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <!--Beginning of second sidenavContainer-->
+        <div class="sidenavContainer" id="secondContainer">
+          <hr />
+          <a href="#">
+            <div class="sidenavContent">Made In Italy</div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Home Services</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavContent">Prime Wardrobe</div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Amazon Business</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavContent">Amazon Second Chance</div>
+          </a>
+        </div>
+        <div
+          class="sidenavRowDropdown"
+          id="secondDropDown"
+          onclick="secondDropDown()"
+        >
+          <div>See All</div>
+          <i
+            class="fas fa-chevron-down"
+            style="color: #8e9090; margin-left: 10px"
+          >
+          </i>
+        </div>
+        <hr />
+        <div class="sidenavContentHeader">Help & Settings</div>
+        <a href="#"><div class="sidenavContent">Your Account</div></a>
+        <a href="#"><div class="sidenavContent">Currency Settings</div></a>
+        <a href="#"><div class="sidenavContent">Customer Service</div></a>
+        <a href="#"><div class="sidenavContent">Sign In</div></a>
+        <div style="height: 50px"></div>
+    </div>
+    
+      <!--End of first container-->
+
+      <div id="sub-container">
+        <div id="mainMenu">
+          <i class="fas fa-chevron-left" style="color: #8e9090"></i> MAIN MENU
+        </div>
+        <hr />
+        <div id="sub-container-content">
+        </div>
+      </div>
+    </div>
+<!-- ***********************sign in account and list part************************ -->
+    <div class="hdn-sign ">
+        <div class="hdn-table">
+            <div>
+                <h3>Your Lists</h3>
+                <ul type="none">
+                    <li>Create a List</li>
+                    <li>Find a List or Registry</li>
+                </ul>
+            </div>
+            <div class="hdn-line"> </div>
+            <div>
+                <h3>Your Account</h3>
+                <ul type="none">
+                    <li>Account </li>
+                    <li>Orders</li>
+                    <li>Recommendation</li>
+                    <li>Watchlists</li>
+                    <li>Video Purchases</li>
+                    <li>Kindle</li>
+                    <li>Unlimited</li>
+                    <li>Content &Devices</li>
+                    <li>Subscribe &Save Items</li>
+                    <li>Membership</li>
+                    <li>Music Library</li>
+                </ul>
             </div>
         </div>
     </div>
+    <section class="sec-1">
+        <div class="container">
+            <div class="container-1">
+                <div class="para">
+                    <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local
+                        delivery. <a href="https://www.amazon.in/?ref=aisgw_intl_stripe_in">Click here to go to
+                            amazon.in</a></p>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="image-box">
+                    <div class="slide">
+                        <img src="./img/img1.jpg" alt="img1">
+                    </div>
+                    <div class="slide">
+                        <img src="./img/img2.jpg" alt="img1">
+                    </div>
+                    <div class="slide">
+                        <img src="./img/img3.jpg" alt="img1">
+                    </div>
+                    <div class="slide">
+                        <img src="./img/img4.jpg" alt="img1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <main class="main">
+        <div class="product-comp">
+            <div class="box1 box">
+                <h3>Gaming Accessories</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/gam1.jpg" alt="gam1" class="top-left">
+                        <span>Headsets</span>
+                    </div>
+                    <div>
+                        <img src="./img/gam2.jpg" alt="gam2" class="top-right">
+                        <span>Keyboards</span>
+                    </div>
+                    <div>
+                        <img src="./img/gam3.jpg" alt="gam3" class="bottom-left">
+                        <span>Computer mice</span>
+                    </div>
+                    <div>
+                        <img src="./img/gam4.jpg" alt="gam4" class="bottom-right">
+                        <span>Chairs</span>
+                    </div>
+                </div>
+                <a href="#">See more</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+
+            <div class="box1 box box-c">
+                <h3>Beauty picks</h3>
+
+                <div>
+                    <img src="./img/beuty.jpg" alt="beauty">
+                </div>
+                <a href="#">shop now</a>
+            </div>
+            <div class="box-b">
+                <div class="best">
+                    <h3>Sign in for the best experience</h3>
+                    <button><a href="https://www.amazon.com/ap/signin?openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fref%3Dgw_sgn_ib%3F_encoding%3DUTF8%26pf_rd_p%3Df6fa1414-9a03-4a77-b33f-48ca75d19e5a%26pd_rd_wg%3DvxSDD%26pf_rd_r%3DF1Z5M77NG5YS96QVEJAB%26content-id%3Damzn1.sym.f6fa1414-9a03-4a77-b33f-48ca75d19e5a%26pd_rd_w%3Du6lIG%26painterId%3Dsign-in-v2%26pd_rd_r%3Dcc2e25a0-8467-4187-949b-bd772823d977&openid.assoc_handle=usflex&openid.pape.max_auth_age=0&pf_rd_r=F1Z5M77NG5YS96QVEJAB&pf_rd_p=f6fa1414-9a03-4a77-b33f-48ca75d19e5a&pd_rd_r=cc2e25a0-8467-4187-949b-bd772823d977&pd_rd_w=u6lIG&pd_rd_wg=vxSDD&ref_=pd_gw_unk">Sign in Security</a> </button>
+                </div>
+                <div>
+                    <img src="./img/banner.jpg" alt="">
+                </div>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+        </div>
+    </main>
+    <section class="sec-2">
+        <div class="deal">
+            <h3>Home Décor Under $20</h3>
+            <p><a href="">See all</a></p>
+        </div>
+        <div class="slide-sec">
+            <button class="l-btn">
+                <i class="fa-solid fa-angle-left"></i>
+
+            </button>
+            <button class="r-btn">
+                <i class="fa-solid fa-angle-right"></i>
+        </div>
+        </button>
+
+        <div class="photo">
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p> <a href="#">&#8377;450 <j>List Price: <s>&#8377;500</s></j> </a></p>
+                <p> <a href="#">MSI SPATIUM M461 PCI </a></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p> <a href="#"> something.......</a></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <div class="main2">
+        <div class="product-comp">
+            <div class="box1 box box-c">
+                <h3>Beauty picks</h3>
+
+                <div>
+                    <img src="./img/beuty.jpg" alt="beauty">
+                </div>
+                <a href="#">shop now</a>
+            </div>
+            <div class="box1 box box-c">
+                <h3>Beauty picks</h3>
+
+                <div>
+                    <img src="./img/beuty.jpg" alt="beauty">
+                </div>
+                <a href="#">shop now</a>
+            </div>
+
+            <div class="box1 box box-c">
+                <h3>Beauty picks</h3>
+
+                <div>
+                    <img src="./img/beuty.jpg" alt="beauty">
+                </div>
+                <a href="#">shop now</a>
+            </div>
+            <div class="box1 box box-c">
+                <h3>Beauty picks</h3>
+
+                <div>
+                    <img src="./img/beuty.jpg" alt="beauty">
+                </div>
+                <a href="#">shop now</a>
+            </div>
+
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+            <div class="box1 box">
+                <h3>Shop deals in Fashion</h3>
+                <div class="box-a">
+                    <div>
+                        <img src="./img/fas1.jpg" alt="fas1">
+                        <span>Jeans Under &#8377;599</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas2.jpg" alt="fas2">
+                        <span>Top Under &#8377;299</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas3.jpg" alt="fas3">
+                        <span>Dress Under &#8377;199</span>
+                    </div>
+                    <div>
+                        <img src="./img/fas4.jpg" alt="fas4">
+                        <span>Shoes Under &#8377;399</span>
+                    </div>
+                </div>
+                <a href="#">See all deals</a>
+            </div>
+        </div>
+    </div>
+    <section class="sec-2">
+        <div class="deal">
+            <h3>Home Décor Under $20</h3>
+            <p><a href="">See all</a></p>
+        </div>
+        <div class="slide-sec">
+            <button class="l-btn  btn1-b">
+                <i class="fa-solid fa-angle-left"></i>
+
+            </button>
+            <button class="r-btn btn1-a">
+                <i class="fa-solid fa-angle-right"></i>
+        </div>
+        </button>
+
+        <div class="photo photo-1">
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p> <a href="#">&#8377;450 <j>List Price: <s>&#8377;500</s></j> </a></p>
+                <p> <a href="#">MSI SPATIUM M461 PCI </a></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p> <a href="#"> something.......</a></p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+            <div class="product-slide">
+                <img src="./img/slide1.jpg" alt="slide">
+                <div class="discount-container">
+                    <a href="#">Up to 20% off</a>
+                    <a href="">Deal</a>
+                </div>
+                <p>something.......</p>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+
 
     <footer>
         <div class="foot-panel1">
-            Back to top
+            <a href="#">Back to top</a>
         </div>
 
         <div class="foot-panel2">
@@ -185,32 +956,46 @@
                 <p> Amazon Payment Products</p>
                 <a href="https://www.amazon.com/dp/B07984JN3L?plattr=ACOMFO&ie=UTF-8">Amazon Business Card</a>
                 <a href="https://www.amazon.com/gp/browse.html?node=16218619011&ref_=footer_swp"> Shop with Points</a>
-                <a href="https://www.amazon.com/gp/browse.html?node=10232440011&ref_=footer_reload_us">Reload Your Balance</a>
-                <a href="https://www.amazon.com/gp/browse.html?node=388305011&ref_=footer_tfx">Amazon Currency Converte</a>
+                <a href="https://www.amazon.com/gp/browse.html?node=10232440011&ref_=footer_reload_us">Reload Your
+                    Balance</a>
+                <a href="https://www.amazon.com/gp/browse.html?node=388305011&ref_=footer_tfx">Amazon Currency
+                    Converte</a>
 
             </ul>
             <ul>
                 <p>Let Us Help You</p>
-                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GDFU3JS5AL6SYHRD&ref_=footer_covid">Amazon and COVID-19</a>
-                <a href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1">Your Orders</a>
+                <a
+                    href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GDFU3JS5AL6SYHRD&ref_=footer_covid">Amazon
+                    and COVID-19</a>
+                <a
+                    href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1">Your
+                    Orders</a>
                 <a href="https://www.amazon.com/gp/css/homepage.html?ref_=footer_ya">Your Account</a>
-                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468520&ref_=footer_shiprates">Shipping Rates & Policies</a>
-                <a href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1">Returns & Replacements</a>
-                <a href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1"> Manage Your Content and Devices</a>
+                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468520&ref_=footer_shiprates">Shipping
+                    Rates & Policies</a>
+                <a
+                    href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1">Returns
+                    & Replacements</a>
+                <a
+                    href="https://www.amazon.com/ap/signin?_encoding=UTF8&accountStatusPolicy=P1&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Forder-history%3Fie%3DUTF8%26ref_%3Dfooter_yo&pageId=webcs-yourorder&showRmrMe=1">
+                    Manage Your Content and Devices</a>
                 <a href=""> Amazon Assistant</a>
-                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508510&ref_=footer_gw_m_b_he">  Help</a>
+                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508510&ref_=footer_gw_m_b_he">
+                    Help</a>
             </ul>
 
         </div>
         <div class="foot-panel3">
-            <div class="logo"></div>
+            <div class="logo2"></div>
 
         </div>
 
         <div class="foot-panel4">
             <div class="pages">
-                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508088&ref_=footer_cou">Conditions of Use</a>
-                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496&ref_=footer_privacy">Privacy Notice</a>
+                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=508088&ref_=footer_cou">Conditions
+                    of Use</a>
+                <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=468496&ref_=footer_privacy">Privacy
+                    Notice</a>
                 <a href="https://www.amazon.com/privacyprefs?ref_=footer_iba">Your Ads Privacy Choices</a>
             </div>
 
@@ -220,6 +1005,9 @@
         </div>
     </footer>
 
+
+
+    <script src="Amazon.js"></script>
 </body>
 
 </html>

@@ -825,6 +825,8 @@ main {
     font-size: 13px;
     margin-left: 30px;
     padding-top: 30px;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px;
 }
 .box a:hover {
     color: red;
